@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>minesweeperClass</class>
+ <widget class="QMainWindow" name="minesweeperClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>655</width>
+    <height>796</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>標楷體</family>
+    <pointsize>12</pointsize>
+    <kerning>true</kerning>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>minesweeper</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="label_title">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>0</y>
+      <width>170</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>標楷體</family>
+      <pointsize>16</pointsize>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="text">
+     <string>Minesweeper</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>611</width>
+      <height>691</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="font">
+     <font>
+      <family>標楷體</family>
+      <pointsize>12</pointsize>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QPushButton" name="pushButton_load">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>load</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_col">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>110</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_count">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>140</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>10000</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_gamemode">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>標楷體</family>
+        <pointsize>12</pointsize>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="text">
+       <string>GameState : </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_count">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>炸彈數量 : </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_filename">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>盤面檔位置</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_mode">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>161</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>BoardFile</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RandomCount</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>RandomRate</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_row">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rows : </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_printgamestate">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>270</y>
+        <width>160</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PrintGameState</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_filename">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>80</y>
+        <width>200</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_rate">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>140</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <double>1.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_col">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>110</y>
+        <width>80</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>cols : </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_rate">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>140</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>生成機率 : </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_mode">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>載入類型 : </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_printgameboard">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>270</y>
+        <width>160</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PrintGameBoard</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_printgameanswer">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>270</y>
+        <width>160</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PrintGameAnswer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_startgame">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>310</y>
+        <width>160</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>StartGame</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_row">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>110</y>
+        <width>50</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_show_gamestate">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>20</y>
+        <width>130</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Standby</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="1">
+         <widget class="QFrame" name="frame_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label_gamemode_4">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>Flag Count:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_flag_count">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QFrame" name="frame_8">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_gamemode_6">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>Open Blank Count:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_open_blank_count">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_gamemode_3">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>Bomb Count:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_bomb_count">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QFrame" name="frame_10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="label_gamemode_5">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>Remain Blank Count:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_remain_blank_count">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_gamemode_2">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>GameState : </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_game_state_2">
+             <property name="font">
+              <font>
+               <family>標楷體</family>
+               <pointsize>9</pointsize>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="text">
+              <string>Standby</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="pushButton_printgameboard_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>PrintGameBoard</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_printgameanswer_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>PrintGameAnswer</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_printgamestate_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>PrintGameState</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QFrame" name="frame_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_3"/>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>655</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="minesweeper.qrc"/>
+ </resources>
+ <connections/>
+</ui>
